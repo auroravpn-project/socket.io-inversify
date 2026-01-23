@@ -1,0 +1,43 @@
+{
+  "name": "@auroravpn/socket.io-inversify",
+  "version": "1.0.0",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "npx rollup -c",
+    "test:vitest": "npx vitest run",
+    "test:runner": "tsx ./__tests__/runner/controller.test.ts"
+  },
+  "keywords": [],
+  "author": "CYHollis",
+  "license": "MIT",
+  "type": "module",
+  "files": ["dist", "index.js", "index.mjs"],
+  "types": "./dist/socket.io-inversify.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.mjs",
+      "require": "./index.js"
+    }
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/node": "^25.0.9",
+    "eslint": "^9.39.2",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.0",
+    "rollup": "^4.55.1",
+    "rollup-plugin-dts": "^6.3.0",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.0",
+    "vitest": "^4.0.17"
+  },
+  "dependencies": {
+    "@auroravpn/class-metadata": "^1.0.1",
+    "inversify": "^7.11.0",
+    "socket.io": "^4.8.3"
+  }
+}
