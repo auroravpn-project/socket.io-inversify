@@ -1,15 +1,19 @@
 import { Container } from 'inversify'
-import { Server } from 'node:http'
-import { loadMessage } from 'src/server/message-loader'
+import { Server as HTTPServer } from 'node:http'
+import { Server as IOServer, Socket as IOSocket } from 'socket.io'
+
+import { loadMessage } from '../server/message-loader'
 import { context } from './app-context'
 
+export { IOServer, IOSocket }
+
 export class InversifySocketIO {
-  constructor(container: Container, server: Server) {
+  constructor(container: Container, server: HTTPServer) {
     context.initContext(container, server)
     loadMessage()
   }
 
-  build() {
+  build(): IOServer {
     return context.getIO()
   }
 }
