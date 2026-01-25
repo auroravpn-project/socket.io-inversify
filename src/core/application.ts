@@ -6,16 +6,10 @@ import { context } from './app-context'
 export class InversifySocketIO {
   constructor(container: Container, server: Server) {
     context.initContext(container, server)
+    loadMessage()
   }
 
-  listen(opts?: { port?: number; host?: string }, callback?: () => void) {
-    loadMessage()
-    const server = context.getServer()
-    if (opts) {
-      server.listen(opts.port, opts.host)
-      callback?.()
-      return
-    }
-    server.listen()
+  build() {
+    return context.getIO()
   }
 }

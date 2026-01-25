@@ -5,9 +5,9 @@ import { Server } from 'socket.io'
 import { createIO } from '../server/socketio-instance'
 
 class AppContext {
-  container: Container | null = null
-  server: HTTPServer | null = null
-  io: Server | null = null
+  private container: Container | null = null
+  private server: HTTPServer | null = null
+  private io: Server | null = null
 
   initContext(container: Container, server: HTTPServer) {
     this.container = container
