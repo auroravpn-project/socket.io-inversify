@@ -28,7 +28,17 @@ export function loadMessage() {
           }
           // 注入参数, 执行方法
           try {
-            await resolve(ctrlMd.target)[propertyName](...result)
+            const res: { ev: string; data: object } = await resolve(
+              ctrlMd.target
+            )[propertyName](...result)
+            if (res) {
+              if (res.ev && res.data) {
+                socket.emit(res.ev, res.data)
+              } else if (res.ev && !res.data) {
+                socket.emit(res.ev)
+              } else {
+              }
+            }
           } catch (err) {
             console.error(err)
           }
