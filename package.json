@@ -10,7 +10,6 @@
   "keywords": [],
   "author": "CYHollis",
   "license": "MIT",
-  "type": "module",
   "files": ["dist", "index.js", "index.mjs"],
   "types": "./dist/socket.io-inversify.d.ts",
   "exports": {

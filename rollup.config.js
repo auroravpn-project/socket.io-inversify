@@ -31,7 +31,8 @@ export default defineConfig([
   {
     input: 'src/index.ts',
     output: {
-      file: './dist/socket.io-inversify.d.ts'
+      file: './dist/socket.io-inversify.d.ts',
+      format: 'es'
     },
     plugins: [dts()]
   }
