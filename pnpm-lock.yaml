@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@auroravpn/class-metadata':
-        specifier: ^1.0.1
-        version: 1.0.1
+        specifier: ^1.0.0
+        version: 1.0.0
       inversify:
         specifier: ^7.11.0
         version: 7.11.0(reflect-metadata@0.2.2)
@@ -63,8 +63,8 @@ importers:
 
 packages:
 
-  '@auroravpn/class-metadata@1.0.1':
-    resolution: {integrity: sha512-VvFzkpi6bhTeEcrIjEEX7dgmxaKcZw95fp82aBV7Py2ZT2QaAGqTiVz8Rey9RBOURuiFGULSodsPLempHipYbw==}
+  '@auroravpn/class-metadata@1.0.0':
+    resolution: {integrity: sha512-D4tjpBTd7H73ogqQ11i5+qCS9mfRYBUxPSEdGsLQyhBP6R6Su98gJ3UMujwctwKeZycbI+DJKez3354Oe++1og==}
 
   '@babel/code-frame@7.28.6':
     resolution: {integrity: sha512-JYgintcMjRiCvS8mMECzaEn+m3PfoQiyqukOMCCVQtoJGYJw8j/8LBJEiqkHLkfwCcs74E3pbAUFNg7d9VNJ+Q==}
@@ -1243,7 +1243,7 @@ packages:
 
 snapshots:
 
-  '@auroravpn/class-metadata@1.0.1': {}
+  '@auroravpn/class-metadata@1.0.0': {}
 
   '@babel/code-frame@7.28.6':
     dependencies:

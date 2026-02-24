@@ -4,9 +4,23 @@ import { context } from '../core/app-context'
 import { resolve } from '../core/resolver'
 
 export function loadMessage() {
-  storage.metadata.each<ControllerMetadata>((ctrlMd) => {
-    ctrlMd.each<MessageMetadata>((msgMd, propertyName) => {
-      context.getIO().on('connection', (socket) => {
+  context.getIO().on('connection', (socket) => {
+    storage.metadata.each<ControllerMetadata>((ctrlMd) => {
+      ctrlMd.each<MessageMetadata>(async (msgMd, propertyName) => {
+        if (msgMd.ev === 'connect') {
+          const result: any[] = []
+          msgMd.parameters.forEach((parameter, paramIndex) => {
+            if (parameter && parameter.location[0] === 'socket') {
+              result[paramIndex] = socket
+            }
+          })
+          try {
+            await resolve(ctrlMd.target)[propertyName](...result)
+          } catch (err) {
+            console.error(err)
+          }
+          return
+        }
         socket.on(msgMd.ev, async (...args) => {
           // 获取参数内容
           const result = []
@@ -28,17 +42,8 @@ export function loadMessage() {
           }
           // 注入参数, 执行方法
           try {
-            const res: { ev: string; data: object } = await resolve(
-              ctrlMd.target
-            )[propertyName](...result)
-            if (res) {
-              if (res.ev && res.data) {
-                socket.emit(res.ev, res.data)
-              } else if (res.ev && !res.data) {
-                socket.emit(res.ev)
-              } else {
-              }
-            }
+            const res = await resolve(ctrlMd.target)[propertyName](...result)
+            res && socket.emit(msgMd.ev, res)
           } catch (err) {
             console.error(err)
           }
