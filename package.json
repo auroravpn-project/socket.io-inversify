@@ -10,14 +10,16 @@
   "keywords": [],
   "author": "CYHollis",
   "license": "MIT",
-  "files": ["dist", "index.js", "index.mjs"],
+  "main": "./index.js",
   "types": "./dist/socket.io-inversify.d.ts",
   "exports": {
     ".": {
       "import": "./index.mjs",
-      "require": "./index.js"
+      "require": "./index.js",
+      "types": "./dist/socket.io-inversify.d.ts"
     }
   },
+  "files": ["dist", "index.js", "index.mjs"],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-json": "^6.1.0",
