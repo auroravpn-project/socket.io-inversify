@@ -36,9 +36,11 @@
     "typescript-eslint": "^8.53.0",
     "vitest": "^4.0.17"
   },
+  "peerDependencies": {
+    "inversify": "^7.11.0"
+  },
   "dependencies": {
     "@auroravpn/class-metadata": "^1.0.0",
-    "inversify": "^7.11.0",
     "socket.io": "^4.8.3"
   }
 }

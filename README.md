@@ -1,6 +1,15 @@
 # Socket.IO-Inversify
 
-## 安装
+### Table of Contents
+
+- [Installation](#Installation)
+- [Quickstart](#Quickstart)
+- [API References](#API-References)
+  - [Constructor](#Constructor)
+  - [Instance methods](#Instance-methods)
+  - [Decorators](#Decorators)
+
+### Installation
 
 ```bash
 npm install @auroravpn/socket.io-inversify
@@ -8,7 +17,9 @@ yarn add @auroravpn/socket.io-inversify
 pnpm add @auroravpn/socket.io-inversify
 ```
 
-## 快速入门
+### Quickstart
+
+> ⚠️ **警告：** 本项目必须使用 Typescript 并启用装饰器选项
 
 ```typescript
 import { Container } from 'inversify'
@@ -41,11 +52,11 @@ app.listen({ port: 3000, host: '0.0.0.0' }, () => {
 
 ```
 
-## API 参考
+### API references
 
-### 构造函数
+#### Constructor
 
-#### `new InversifySocketIO(container, server)`
+##### `new InversifySocketIO(container, server)`
 
 **参数**
 
@@ -64,9 +75,9 @@ const server = createServer()
 const app = new InversifySocketIO(container, server)
 ```
 
-### 实例方法
+#### Instance methods
 
-#### `InversifySocketIO.listen([opts], [callback])`
+##### `InversifySocketIO.listen([opts], [callback])`
 
 **参数：**
 
@@ -84,9 +95,7 @@ app.listen({ port: 3000, host: 'localhost' }, () => {
 })
 ```
 
-### 装饰器
-
-#### 类装饰器
+#### Decorators
 
 ##### `@Controller()`
 
@@ -96,8 +105,6 @@ app.listen({ port: 3000, host: 'localhost' }, () => {
 @Controller()
 class TestController {}
 ```
-
-#### 方法装饰器
 
 ##### `@Message(ev)`
 
@@ -116,10 +123,6 @@ class TestController {
   }
 }
 ```
-
-
-
-#### 参数装饰器
 
 ##### `@Socket()`
 
